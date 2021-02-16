@@ -6,6 +6,7 @@ import AddressBook from './components/AddressBook';
 
 export default class App extends React.Component {
   constructor(){
+    super()
     this.state = {
       users: []
     }
@@ -27,7 +28,7 @@ export default class App extends React.Component {
         </header>
           <Menu/>
           <Settings />
-          <AddressBook users={this.state.users}/>
+          <AddressBook />
       </div>
     );
   }
