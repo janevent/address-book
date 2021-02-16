@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 
 export default class Settings extends Component {
     render(){
-        <div className="Settings">
-            <h2>Settings</h2>
-            <h2>Pick A Country</h2>
-        </div>
+        return(
+            <div className="Settings">
+                <h2>Settings</h2>
+                <label>Pick A Country</label>
+                <select id="list">
+                    <option value="EU">EU</option>
+                </select>
+            </div>
+        )
     }
 }
