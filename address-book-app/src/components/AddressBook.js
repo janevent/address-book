@@ -1,8 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
 
-export default class AddressBook extends React.Component{
+class AddressBook extends React.Component{
 
+    constructor(){
+        super()
+    }
+
+    fetchUsers(){
+
+    }
+
+    componentDidMount(){
+        this.fetchUsers()
+    }
     render(){
         return(
             <div>
@@ -12,3 +24,5 @@ export default class AddressBook extends React.Component{
         )
     }
 }
+
+export default connect(mapStateToProps, map)(AddressBook)
