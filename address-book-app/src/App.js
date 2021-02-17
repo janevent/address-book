@@ -28,12 +28,12 @@ export default class App extends React.Component {
           <h1>Address Book</h1>
         </header>
           <Menu/>
-        <Router>
+        
           <Switch>
-            <Route path="/settings"><Settings/></Route>
-            <Route path="/main"><AddressBook/></Route>
+            <Route path="/settings" component={Settings} />
+            <Route path="/" component={AddressBook} />
           </Switch>
-        </Router>
+        
       </div>
     );
   }

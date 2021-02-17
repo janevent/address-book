@@ -5,10 +5,10 @@ export default class Menu extends Component {
     render(){
         return(
             <div className="Menu">
-                <Router>
-                    <Link to='/addressbook'>Main</Link>
+                
+                    <Link to='/'>Address Book</Link>
                     <Link to='/settings'>Settings</Link>
-                </Router>
+                
             </div>
         )
     }
