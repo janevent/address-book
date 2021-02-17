@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import addUsers from '../actions/addUsers';
 import SearchBar from './SearchBar';
 
 class AddressBook extends React.Component{
@@ -24,5 +25,9 @@ class AddressBook extends React.Component{
         )
     }
 }
-
-export default connect(mapStateToProps, map)(AddressBook)
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    } 
+}
+export default connect(mapStateToProps)(AddressBook)
