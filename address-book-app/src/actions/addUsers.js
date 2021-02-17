@@ -13,12 +13,10 @@ const fetchAndAddUsers = (users) => {
             if(data.results){
                 dispatch(addUsers(data.results))
             }else if(data.error){
-                console.log(error)
+                console.log(data.error)
             }
         })
-        .catch(error => {
-            console.log("error", error)
-        })
+        .catch(console.log)
     }
 }
 export default fetchAndAddUsers
