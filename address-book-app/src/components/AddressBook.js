@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import addUsers from '../actions/addUsers';
+import fetchAndAddUsers from '../actions/addUsers';
 import SearchBar from './SearchBar';
 
 class AddressBook extends React.Component{
@@ -9,12 +9,9 @@ class AddressBook extends React.Component{
         super()
     }
 
-    fetchUsers(){
-
-    }
 
     componentDidMount(){
-        this.fetchUsers()
+        this.props.fetchAndAddUsers()
     }
     render(){
         return(
@@ -30,4 +27,6 @@ const mapStateToProps = (state) => {
         users: state.users
     } 
 }
-export default connect(mapStateToProps)(AddressBook)
+    
+
+export default connect(mapStateToProps, {fetchAndAddUsers})(AddressBook)
