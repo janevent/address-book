@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../styles/AddressBook.css';
 import fetchAndAddUsers from '../actions/addUsers';
 import SearchBar from './SearchBar';
+import User from './User';
 
 class AddressBook extends React.Component{
 
@@ -31,11 +32,15 @@ class AddressBook extends React.Component{
 
     render(){
         console.log("users", this.props.users)
+        let users = this.props.users.map((u) => {
+            return <User user={u} />
+        })
+        
         return(
             <div>
                 <SearchBar/>
                 <h1 className="title">Address Book</h1>
-                <div>{this.props.users}</div>
+                <div>{users}</div>
             </div>
         )
     }
