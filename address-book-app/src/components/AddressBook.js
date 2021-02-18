@@ -18,7 +18,7 @@ class AddressBook extends React.Component{
         }
     }
     componentDidMount(){
-            window.addEventListener("scroll", this.crolling)
+            window.addEventListener("scroll", this.scrolling)
             console.log("mounting AddressBook")
             this.props.fetchAndAddUsers();
             // Correct
@@ -45,7 +45,8 @@ class AddressBook extends React.Component{
             <div>
                 <SearchBar/>
                 <h1 className="title">Address Book</h1>
-                <div className="users-grid">{users}</div>
+                <div className="users-grid">{users}<div className="loader"></div></div>
+                
             </div>
         )
     }
