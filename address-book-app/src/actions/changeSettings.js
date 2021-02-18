@@ -1,4 +1,4 @@
-const changeSettings = (newSettings) => {
+const changeSettings = (newSettings=[]) => {
     return {
         type: 'CHANGE_SETTINGS',
         nats: newSettings

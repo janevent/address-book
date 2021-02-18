@@ -21,7 +21,14 @@ class AddressBook extends React.Component{
     componentDidMount(){
             window.addEventListener("scroll", this.scrolling)
             console.log("mounting AddressBook")
-            this.props.fetchAndAddUsers();
+            console.log(this.props)
+            if(this.props.nationalities == undefined){
+                this.props.fetchAndAddUsers();
+            }else{
+                let nats = this.prop.nationalities.join(',')
+                let n = `&nats=${nats}`
+                this.props.nationalities(n)
+            }
             // Correct
           //this.setState((state, props) => ({
             //counter: state.counter + props.increment
@@ -54,7 +61,8 @@ class AddressBook extends React.Component{
 }
 const mapStateToProps = (state) => {
     return {
-        users: state.users
+        users: state.users,
+        nationalites: state.nationalities
     } 
 }
     
