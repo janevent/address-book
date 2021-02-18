@@ -1,3 +1,8 @@
 .title {
     color: black;
 }
+
+.users-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
