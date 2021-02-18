@@ -8,7 +8,7 @@ export default class User extends React.Component{
         return(
             <div className="User">
             <img src={picture.large}/>
-                <h1>{name.title} {name.first} {name.last}</h1>
+                <h3>{name.title} {name.first} {name.last}</h3>
                 <h3>Username: {login.username}</h3>
                 <p>Email: {email}</p>
             </div>

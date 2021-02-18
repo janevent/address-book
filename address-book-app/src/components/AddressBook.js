@@ -33,7 +33,7 @@ class AddressBook extends React.Component{
     render(){
         console.log("users", this.props.users)
         let users = this.props.users.map((u) => {
-            console.log(u.id.value)
+            
             return <User user={u} key={u.name.last} />
         })
         
