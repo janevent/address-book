@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Button from './Button.js';
 
 export default class Settings extends Component {
     render(){
