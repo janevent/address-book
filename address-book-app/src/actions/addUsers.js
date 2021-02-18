@@ -5,9 +5,12 @@ const addUsers = (users) => {
     }
 }
 
-const fetchAndAddUsers = (users) => {
+const fetchAndAddUsers = ( n) => {
     return (dispatch) => {
-        fetch('https://randomuser.me/api/?results=50&inc=name,email,picture,id,login')
+        let url = (n===undefined) ? 'https://randomuser.me/api/?results=50&inc=name,email,picture,id,login' :
+        `https://randomuser.me/api/?results=50&inc=name,email,picture,id,login${n}`
+        
+        fetch(url)
         .then(response => response.json())
         .then(data => {
             if(data.results){
