@@ -6,21 +6,36 @@ import SearchBar from './SearchBar';
 
 class AddressBook extends React.Component{
 
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
+        
     }
 
 
     componentDidMount(){
-        this.props.fetchAndAddUsers()
-        console.log("mounting AddressBook")
+        
+            console.log("mounting AddressBook")
+            this.props.fetchAndAddUsers();
+            // Correct
+          //this.setState((state, props) => ({
+            //counter: state.counter + props.increment
+            //}));
+            
     }
 
+    // static getDerivedStateFromProps(nextProps, prevState){
+    //     return {
+    //         users: nextProps.users
+    //     }
+    // }
+
     render(){
+        console.log("users", this.props.users)
         return(
             <div>
                 <SearchBar/>
                 <h1 className="title">Address Book</h1>
+                <div>{this.props.users}</div>
             </div>
         )
     }
