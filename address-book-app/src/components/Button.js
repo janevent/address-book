@@ -6,7 +6,7 @@ export default class Button extends React.Component {
     render(){
         return (
             <Link to="/">
-                <button>Back To Address Book</button>
+                <button type="button">Back To Address Book</button>
             </Link>
         )
     }
