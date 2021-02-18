@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Button from './Button.js';
+import CheckBox from './CheckBox';
 
 const OPTIONS = ['AU', 'BR', 'CA', 'CH', 'DE', 'DK', 'ES', 'FI', 'FR', 'GB', 'IE', 'IR', 'NO', 'NL', 'NZ', 'TR', 'US'];
 
@@ -18,7 +19,7 @@ export default class Settings extends Component {
         }
 
     changeSelection = (event) => {
-        
+
     }
     createCheckBoxes = () => {
         return OPTIONS.map((option) => {
