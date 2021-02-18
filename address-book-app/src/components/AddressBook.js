@@ -12,9 +12,13 @@ class AddressBook extends React.Component{
         
     }
 
-
+    scrolling = () => {
+        if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight){
+            this.props.fetchAndAddUsers();
+        }
+    }
     componentDidMount(){
-        
+            window.addEventListener("scroll", this.crolling)
             console.log("mounting AddressBook")
             this.props.fetchAndAddUsers();
             // Correct
