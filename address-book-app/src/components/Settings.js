@@ -21,22 +21,23 @@ export default class Settings extends Component {
     changeSelection = (event) => {
 
     }
+    createCheckBox = (option) => (   
+            <CheckBox label={option} isSelected={this.state.checkboxes[option]} changeSelection={this.changeSelection} key={option} />   
+    )
+
     createCheckBoxes = () => {
-        return OPTIONS.map((option) => {
-            <CheckBox label={option} isSelected={this.state.checkboxes[option]} changeSelection={this.changeSelection} key={option} />
-        })
+        return OPTIONS.map(this.createCheckBox) 
     }
     
     render(){
         return(
             <div className="Settings">
                 <h2>Settings</h2>
-                <div>
-                    <label>Pick A Country</label>
-                        <select id="list">
-                            <option value="EU">EU</option>
-                        </select>
-                    </div>
+                <form>
+                    {this.createCheckBoxes()}
+                </form>
+                    
+                    
                     <div>
                         <Button/>
                     </div>
