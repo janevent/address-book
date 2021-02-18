@@ -1,0 +1,14 @@
+.search-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.SearchBar {
+    background-color:rgb(143, 202, 250);
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    right:0;
+    
+}
