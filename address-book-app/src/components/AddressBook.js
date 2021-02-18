@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../styles/AddressBook.css';
 import fetchAndAddUsers from '../actions/addUsers';
 import SearchBar from './SearchBar';
+import Menu from './Menu';
 import User from './User';
 
 class AddressBook extends React.Component{
@@ -44,7 +45,7 @@ class AddressBook extends React.Component{
         return(
             <div>
                 <SearchBar/>
-                <h1 className="title">Address Book</h1>
+                <Menu/>
                 <div className="users-grid">{users}<div className="loader"></div></div>
                 
             </div>
