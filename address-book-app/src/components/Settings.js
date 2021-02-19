@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../styles/Settings.css';
 import changeSettings from '../actions/changeSettings.js';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Button from './Button.js';
 import CheckBox from './CheckBox';
 
@@ -49,6 +50,7 @@ class Settings extends Component {
         })
         console.log("submit", nats)
         this.props.changeSettings(nats)
+        this.props.history.push('/');
     }
     
     render(){

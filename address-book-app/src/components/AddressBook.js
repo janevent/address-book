@@ -25,9 +25,11 @@ class AddressBook extends React.Component{
             window.addEventListener("scroll", this.scrolling)
             console.log("mounting AddressBook")
             console.log(this.props)
-            if(this.props.nationalities == undefined){
+            if(this.props.nationalities == undefined ){
+                console.log("if")
                 this.props.fetchAndAddUsers();
             }else{
+                console.log("else")
                 let nats = this.prop.nationalities.join(',').toLowerCase();
                 let n = `&nats=${nats}`
                 this.props.nationalities(n)
