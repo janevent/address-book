@@ -1,5 +1,23 @@
 form {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 5px;
+    grid-column: span;
+    
+    
+}
+
+.Settings {
     display: flex;
     flex-direction: column;
-    justify-content: right;
+    justify-content: center;
+    margin: 50px;
+
+}
+
+.input-item {
+    grid-column-start: 3;
+    grid-column-start: 4;
+    max-width: 50px;
+    margin: 50px 10px;
 }

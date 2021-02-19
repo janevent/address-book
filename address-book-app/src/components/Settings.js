@@ -60,7 +60,7 @@ class Settings extends Component {
                 <p>Specify nationality</p>
                 <form onSubmit={this.submitSelections}>
                     {this.createCheckBoxes()}
-                    <input type="submit" value="Save"></input>
+                    <input type="submit" value="Save" className="input-item"></input>
                 </form>
                     
                     
