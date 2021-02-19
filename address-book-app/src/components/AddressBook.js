@@ -14,7 +14,10 @@ class AddressBook extends React.Component{
     }
 
     scrolling = () => {
+        console.log("in scrolling")
         if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight){
+            //works for fullscreen
+            console.log("scrolled to the bottom")
             this.props.fetchAndAddUsers();
         }
     }
@@ -44,9 +47,9 @@ class AddressBook extends React.Component{
 
     render(){
         console.log("users", this.props.users)
-        let users = this.props.users.map((u) => {
+        let users = this.props.users.map((u, i) => {
             
-            return <User user={u} key={u.name.last} />
+            return <User user={u} key={u.name.last+i} />
         })
         
         return(
