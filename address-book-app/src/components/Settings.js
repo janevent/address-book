@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/Settings.css';
-import changeSettings from '../actions/changeSettings';
+import changeSettings from '../actions/changeSettings.js';
 import { connect } from 'react-redux';
 import Button from './Button.js';
 import CheckBox from './CheckBox';
@@ -42,8 +42,13 @@ class Settings extends Component {
         return OPTIONS.map(this.createCheckBox) 
     }
 
-    submitSelection = () => {
-        //this.props.changeSettings(nats)
+    submitSelections = (event) => {
+        event.preventDefault();
+        let nats = Object.keys(this.state.checkboxes).filter((k) => {
+            return this.state.checkboxes[k] === true
+        })
+        console.log("submit", nats)
+        this.props.changeSettings(nats)
     }
     
     render(){
@@ -53,7 +58,7 @@ class Settings extends Component {
                 <p>Specify nationality</p>
                 <form onSubmit={this.submitSelections}>
                     {this.createCheckBoxes()}
-                    <button type="submit" value="Save"></button>
+                    <input type="submit" value="Save"></input>
                 </form>
                     
                     

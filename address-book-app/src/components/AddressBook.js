@@ -25,7 +25,7 @@ class AddressBook extends React.Component{
             if(this.props.nationalities == undefined){
                 this.props.fetchAndAddUsers();
             }else{
-                let nats = this.prop.nationalities.join(',')
+                let nats = this.prop.nationalities.join(',').toLowerCase();
                 let n = `&nats=${nats}`
                 this.props.nationalities(n)
             }
