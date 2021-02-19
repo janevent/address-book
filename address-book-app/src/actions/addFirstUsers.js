@@ -1,6 +1,6 @@
 const addFirstUsers = (users) => {
     return {
-        type: 'ADD_USERS',
+        type: 'ADD__FIRST_USERS',
         users: users
     }
 }
