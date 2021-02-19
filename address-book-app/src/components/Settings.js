@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../styles/Settings.css';
 import Button from './Button.js';
 import CheckBox from './CheckBox';
 
@@ -19,7 +20,17 @@ export default class Settings extends Component {
         }
 
     changeSelection = (event) => {
-
+        let op = event.target.value;
+        console.log(op)
+        this.setState((prevState) => {
+            return {
+                checkboxes: {
+                    ...prevState.checkboxes,
+                    [op]: !prevState.checkboxes[op]
+                }
+            }
+        })
+        console.log(this.state)
     }
     createCheckBox = (option) => (   
             <CheckBox label={option} isSelected={this.state.checkboxes[option]} changeSelection={this.changeSelection} key={option} />   
@@ -33,6 +44,7 @@ export default class Settings extends Component {
         return(
             <div className="Settings">
                 <h2>Settings</h2>
+                <p>Specify nationality</p>
                 <form>
                     {this.createCheckBoxes()}
                 </form>

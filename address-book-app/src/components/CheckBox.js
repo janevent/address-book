@@ -8,7 +8,7 @@ componentDidMount(){
     render(){
         return (
             <label>{this.props.label}
-                <input type="checkbox" key={this.props.key} value={this.props.key}></input>
+                <input type="checkbox" key={this.props.key} onChange={this.props.changeSelection} value={this.props.label}></input>
             </label>
         )
     }    
