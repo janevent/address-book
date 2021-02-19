@@ -18,21 +18,32 @@ class AddressBook extends React.Component{
         if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight){
             //works for fullscreen
             console.log("scrolled to the bottom")
-            this.props.fetchAndAddUsers();
+            //this.props.fetchAndAddUsers();
+            console.log("scroll", this.props)
+            if(this.props.nationalities == undefined ){
+                console.log("if scroll")
+                this.props.fetchAndAddUsers();
+            }else{
+                console.log("else scroll")
+                let nat = this.props.nationalities.join(',').toLowerCase();
+                let n = `&nat=${nat}`
+                this.props.fetchAndAddUsers(n);
+            }
         }
     }
     componentDidMount(){
             window.addEventListener("scroll", this.scrolling)
             console.log("mounting AddressBook")
             console.log(this.props)
+            console.log(this.props.nationalities)
             if(this.props.nationalities == undefined ){
                 console.log("if")
                 this.props.fetchAndAddUsers();
             }else{
                 console.log("else")
-                let nats = this.prop.nationalities.join(',').toLowerCase();
-                let n = `&nats=${nats}`
-                this.props.nationalities(n)
+                let nat = this.props.nationalities.join(',').toLowerCase();
+                let n = `&nat=${nat}`
+                this.props.fetchAndAddUsers(n);
             }
             // Correct
           //this.setState((state, props) => ({
@@ -48,9 +59,8 @@ class AddressBook extends React.Component{
     // }
 
     render(){
-        console.log("users", this.props.users)
-        let users = this.props.users.map((u, i) => {
-            
+       
+        let users = this.props.users.map((u, i) => {            
             return <User user={u} key={u.name.last+i} />
         })
         
@@ -58,16 +68,18 @@ class AddressBook extends React.Component{
             <div>
                 <SearchBar/>
                 <Menu/>
-                <div className="users-grid">{users}<div className="loader"></div></div>
-                
+                <div className="users-grid">
+                    {users}
+                    <div className="loader"></div>
+                </div>                
             </div>
         )
     }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = ({users, nationalities}) => {
     return {
-        users: state.users,
-        nationalites: state.nationalities
+        users,
+        nationalities
     } 
 }
     

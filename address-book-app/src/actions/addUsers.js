@@ -10,7 +10,7 @@ const fetchAndAddUsers = ( n) => {
         console.log(n)
         let url = (n===undefined ) ? 'https://randomuser.me/api/?results=50&inc=name,email,picture,id,login,nat' :
         `https://randomuser.me/api/?results=50&inc=name,email,picture,id,login,nat${n}`
-        
+        console.log("url", url)
         fetch(url)
         .then(response => response.json())
         .then(data => {

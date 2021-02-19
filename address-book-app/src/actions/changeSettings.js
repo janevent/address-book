@@ -1,8 +1,8 @@
-const changeSettings = (newSettings=[]) => {
-    console.log("changing settings")
+const changeSettings = (nats=[]) => {
+    console.log("changing settings", nats)
     return {
         type: 'CHANGE_SETTINGS',
-        nats: newSettings
+        nats: nats
     }
 }
 
