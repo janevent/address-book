@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import '../styles/Settings.css';
+import changeSettings from '../actions/changeSettings';
+import { connect } from 'react-redux';
 import Button from './Button.js';
 import CheckBox from './CheckBox';
 
 const OPTIONS = ['AU', 'BR', 'CA', 'CH', 'DE', 'DK', 'ES', 'FI', 'FR', 'GB', 'IE', 'IR', 'NO', 'NL', 'NZ', 'TR', 'US'];
 
-export default class Settings extends Component {
+class Settings extends Component {
     
     
 
@@ -39,14 +41,19 @@ export default class Settings extends Component {
     createCheckBoxes = () => {
         return OPTIONS.map(this.createCheckBox) 
     }
+
+    submitSelection = () => {
+        //this.props.changeSettings(nats)
+    }
     
     render(){
         return(
             <div className="Settings">
                 <h2>Settings</h2>
                 <p>Specify nationality</p>
-                <form>
+                <form onSubmit={this.submitSelections}>
                     {this.createCheckBoxes()}
+                    <button type="submit" value="Save"></button>
                 </form>
                     
                     
@@ -57,3 +64,5 @@ export default class Settings extends Component {
         )
     }
 }
+
+export default connect(null, { changeSettings})(Settings)
