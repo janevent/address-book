@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../styles/AddressBook.css';
 import fetchAndAddUsers from '../actions/addUsers';
+import fetchAndAddFirstUsers from '../actions/addFirstUsers';
 import SearchBar from './SearchBar';
 import Menu from './Menu';
 import User from './User';
@@ -20,7 +21,7 @@ class AddressBook extends React.Component{
             console.log("scrolled to the bottom")
             //this.props.fetchAndAddUsers();
             console.log("scroll", this.props)
-            if(this.props.nationalities == undefined ){
+            if(this.props.nationalities == undefined || this.props.nationalities.length < 1){
                 console.log("if scroll")
                 this.props.fetchAndAddUsers();
             }else{
@@ -36,14 +37,14 @@ class AddressBook extends React.Component{
             console.log("mounting AddressBook")
             console.log(this.props)
             console.log(this.props.nationalities)
-            if(this.props.nationalities == undefined ){
+            if(this.props.nationalities == undefined || this.props.nationalities.length < 1){
                 console.log("if")
-                this.props.fetchAndAddUsers();
+                this.props.fetchAndAddFirstUsers();
             }else{
                 console.log("else")
                 let nat = this.props.nationalities.join(',').toLowerCase();
                 let n = `&nat=${nat}`
-                this.props.fetchAndAddUsers(n);
+                this.props.fetchAndAddFirstUsers(n);
             }
             // Correct
           //this.setState((state, props) => ({
@@ -84,4 +85,4 @@ const mapStateToProps = ({users, nationalities}) => {
 }
     
 
-export default connect(mapStateToProps, {fetchAndAddUsers})(AddressBook)
+export default connect(mapStateToProps, {fetchAndAddUsers, fetchAndAddFirstUsers})(AddressBook)
