@@ -10,22 +10,14 @@ import User from './User';
 class AddressBook extends React.Component{
 
     constructor(props){
-        super(props)
-        
+        super(props)   
     }
 
     scrolling = () => {
-        console.log("in scrolling")
         if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight){
-            //works for fullscreen
-            console.log("scrolled to the bottom")
-            //this.props.fetchAndAddUsers();
-            console.log("scroll", this.props)
             if(this.props.nationalities == undefined || this.props.nationalities.length < 1){
-                console.log("if scroll")
                 this.props.fetchAndAddUsers();
             }else{
-                console.log("else scroll")
                 let nat = this.props.nationalities.join(',').toLowerCase();
                 let n = `&nat=${nat}`
                 this.props.fetchAndAddUsers(n);
@@ -34,30 +26,14 @@ class AddressBook extends React.Component{
     }
     componentDidMount(){
             window.addEventListener("scroll", this.scrolling)
-            console.log("mounting AddressBook")
-            console.log(this.props)
-            console.log(this.props.nationalities)
             if(this.props.nationalities == undefined || this.props.nationalities.length < 1){
-                console.log("if")
                 this.props.fetchAndAddFirstUsers();
             }else{
-                console.log("else")
                 let nat = this.props.nationalities.join(',').toLowerCase();
                 let n = `&nat=${nat}`
                 this.props.fetchAndAddFirstUsers(n);
             }
-            // Correct
-          //this.setState((state, props) => ({
-            //counter: state.counter + props.increment
-            //}));
-            
     }
-
-    // static getDerivedStateFromProps(nextProps, prevState){
-    //     return {
-    //         users: nextProps.users
-    //     }
-    // }
 
     render(){
        
