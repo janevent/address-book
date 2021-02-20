@@ -5,13 +5,13 @@
 }
 
 .SearchBar {
-    background-color: whitesmoke;
+    background-color: white;
     border-left-style: solid;
     border-bottom-style: solid;
     border-width: .5px;
     padding: 30px;
     position: fixed;
-    top: 0;
+    top: .0;
     right:0;
     
 }
