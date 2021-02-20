@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import fetchAndAddFirstUsers from '../actions/addFirstUsers';
+import { connect } from 'react-redux';
 import '../styles/SearchBar.css';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
 
     state= {
         input: ""
@@ -20,6 +21,10 @@ export default class SearchBar extends Component {
         console.log("state", this.state.input)
         let array = this.state.input.toLowerCase().split(" ")
         console.log(array[0], array[1])
+        let filteredUsers = this.props.users.filter( (user) => {
+            return user.name.first.toLowerCase() === array[0] || user.name.last.toLowerCase() === array[1]
+        })
+        console.log(filteredUsers)
     }
 
     render(){
@@ -34,3 +39,11 @@ export default class SearchBar extends Component {
         )
     }
 }
+
+const mapStateToProps = ({ users }) => {
+    return {
+        users
+    }
+}
+
+export default connect(mapStateToProps)(SearchBar)
