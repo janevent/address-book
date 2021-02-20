@@ -4,6 +4,7 @@ export default function appReducer(state=[], action){
             console.log('ADD_USERS action', action.users)
             return [...state, ...action.users]
         case 'ADD_FIRST_USERS':
+            console.log('ADD_FIRST_USERS', action.users)
             return [...action.users]
         default:
             return state
