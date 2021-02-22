@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Provider } from 'react-redux';
+import store from '../store.js';
 import '../styles/AddressBook.css';
 import fetchAndAddUsers from '../actions/addUsers';
 import fetchAndAddFirstUsers from '../actions/addFirstUsers';
@@ -42,6 +44,7 @@ class AddressBook extends React.Component{
         })
         
         return(
+            <Provider store={store}>
             <div>
                 <SearchBar/>
                 <Menu/>
@@ -50,6 +53,7 @@ class AddressBook extends React.Component{
                     <div className="loader"></div>
                 </div>                
             </div>
+            </Provider>
         )
     }
 }

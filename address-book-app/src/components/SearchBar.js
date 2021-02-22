@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { Provider } from 'react-redux';
+import store from '../store.js';
 import fetchAndAddFirstUsers from '../actions/addFirstUsers';
 import setFilteredUsers from '../actions/setFilteredUsers';
 import { connect } from 'react-redux';
@@ -31,6 +33,7 @@ class SearchBar extends Component {
 
     render(){
         return (
+            
             <div className="SearchBar">
                 <form className="search-form" onSubmit={this.onSubmitSearch}>
                     <label>Search</label>
@@ -38,6 +41,7 @@ class SearchBar extends Component {
                     <input type="submit"></input>
                 </form>
             </div>
+            
         )
     }
 }

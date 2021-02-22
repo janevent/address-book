@@ -7,7 +7,9 @@ export default class Menu extends Component {
     render(){
         return(
             <div className="Menu">
-                    <Link to='/settings'>Settings</Link>              
+                <Router>
+                    <Link to='/settings'>Settings</Link>   
+                </Router>           
             </div>
         )
     }
