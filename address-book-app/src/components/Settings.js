@@ -6,25 +6,22 @@ import { withRouter } from 'react-router';
 import Button from './Button.js';
 import CheckBox from './CheckBox';
 
-const OPTIONS = ['AU', 'BR', 'CA', 'CH', 'DE', 'DK', 'ES', 'FI', 'FR', 'GB', 'IE', 'IR', 'NO', 'NL', 'NZ', 'TR', 'US'];
+const OPTIONS = ['CH','ES','FR', 'GB'];
 
-class Settings extends Component {
-    
-    
+class Settings extends Component {    
 
-        state = {
-            checkboxes: OPTIONS.reduce(
-                (options, option) => ({
-                    ...options, 
-                    [option]: false
-                }),
-                {}
-            )
-        }
+    state = {
+        checkboxes: OPTIONS.reduce(
+            (options, option) => ({
+                ...options, 
+                [option]: false
+            }),
+            {}
+        )
+    }
 
     changeSelection = (event) => {
         let op = event.target.value;
-        console.log(op)
         this.setState((prevState) => {
             return {
                 checkboxes: {
@@ -33,7 +30,6 @@ class Settings extends Component {
                 }
             }
         })
-        console.log(this.state)
     }
     createCheckBox = (option) => (   
             <CheckBox label={option} isSelected={this.state.checkboxes[option]} changeSelection={this.changeSelection} key={option} />   
@@ -48,7 +44,6 @@ class Settings extends Component {
         let nats = Object.keys(this.state.checkboxes).filter((k) => {
             return this.state.checkboxes[k] === true
         })
-        console.log("submit", nats)
         this.props.changeSettings(nats)
         this.props.history.push('/');
     }
@@ -61,9 +56,7 @@ class Settings extends Component {
                 <form onSubmit={this.submitSelections}>
                     {this.createCheckBoxes()}
                     <input type="submit" value="Save" className="input-item"></input>
-                </form>
-                    
-                    
+                </form>                    
                     <div>
                         <Button/>
                     </div>
