@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import { Provider } from 'react-redux';
-import store from '../store.js';
-import fetchAndAddFirstUsers from '../actions/addFirstUsers';
 import setFilteredUsers from '../actions/setFilteredUsers';
 import { connect } from 'react-redux';
 import '../styles/SearchBar.css';
@@ -21,28 +18,22 @@ class SearchBar extends Component {
 
     onSubmitSearch = (event) => {
         event.preventDefault();
-        console.log("state", this.state.input)
         let array = this.state.input.toLowerCase().split(" ")
-        console.log(array[0], array[1])
         let filteredUsers = this.props.users.filter( (user) => {
             return user.name.first.toLowerCase() === array[0] || user.name.last.toLowerCase() === array[1]
         })
-        console.log(filteredUsers)
         this.props.setFilteredUsers(filteredUsers)
     }
 
     render(){
-        return (
-            
+        return (           
             <div className="SearchBar">
                 <form className="search-form" onSubmit={this.onSubmitSearch}>
                     <label>Search</label>
                     <input type="text" onChange={this.onChangeInput}></input>
                     <input type="submit"></input>
-                </form>
-                
-            </div>
-            
+                </form>                
+            </div>            
         )
     }
 }
