@@ -6,6 +6,7 @@ import appReducer from '../reducer';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import AddressBook from '../components/AddressBook';
 import thunk from 'redux-thunk'
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function createTestStore() {
     const store = createStore(
@@ -28,7 +29,9 @@ describe('renders AddressBook', () => {
     it('should display users', () => {
         const {find} = render(
             <Provider store={store}>
-                <AddressBook/>
+                <Router>
+                    <AddressBook/>
+                </Router>
             </Provider>
         )
         expect(screen.getByRole('textbox')).toBeInTheDocument();

@@ -2,13 +2,9 @@ import createTestStore from '../createTestStore.js';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react';
-//import renderer from 'react-test-renderer';
-//const renderer = require('react-test-renderer')
-import settingsReducer from '../settingsReducer';
-import appReducer from '../reducer';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Settings from '../components/Settings';
-import thunk from 'redux-thunk'
+
 
 let store;
 
@@ -19,15 +15,19 @@ describe('renders Settings component', () => {
     
     it('should display settings options', () => {
         render(<Provider store={store}>
-            <Settings/>
-        </Provider>)
-        expect(screen.getByText(/DK/)).toBeInTheDocument();
+                    <Router>
+                        <Settings/>
+                    </Router>
+                </Provider>)
+        expect(screen.getByText(/CH/)).toBeInTheDocument();
         //screen.debug()
     })
     it('should render checkboxes', () => {
         render(<Provider store={store}>
-            <Settings/>
-        </Provider>)
+                    <Router>
+                        <Settings/>
+                    </Router>
+                </Provider>)
         expect(screen.queryAllByRole('checkbox'))
     })
 })

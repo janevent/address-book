@@ -1,15 +1,15 @@
 import React from 'react';
+import {BrowserRouter as Router } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import Button from '../components/Button';
 
 describe('renders Button component', () => {
-    render(<Button/>)
+    render(<Router><Button/></Router>)
     it('renders a link', () => {
-        //render(<Button/>)
         expect(screen.getByRole('link')).toBeInTheDocument();
     })
     it('renders Back To Address Book', () => {
-    render(<Button/>)
-        expect(screen.getByText(/Back To Address Book/)).toBeInTheDocument();
+    render(<Router><Button/></Router>)
+        expect(screen.getByText(/Back/)).toBeInTheDocument();
     })
 })
