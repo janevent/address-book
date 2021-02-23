@@ -40,6 +40,7 @@ class SearchBar extends Component {
                     <input type="text" onChange={this.onChangeInput}></input>
                     <input type="submit"></input>
                 </form>
+                
             </div>
             
         )
