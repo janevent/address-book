@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import '../styles/CheckBox.css';
 
 export default class CheckBox extends React.Component {
-componentDidMount(){
-    console.log("checkbox mounting")
-}
 
     render(){
         return (
