@@ -29,3 +29,9 @@ Make sure to save the settings.
 You may use the search box to filter through users that are already loaded on the page by name.
 
 Can not make fetch requests specifying value of name.
+
+To run unit tests, run:
+
+    npm test
+
+from within the address-book-app directory.
