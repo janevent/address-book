@@ -51,15 +51,13 @@ class Settings extends Component {
     render(){
         return(
             <div className="Settings">
+                 <Button/>
                 <h2>Settings</h2>
                 <p>Specify nationality</p>
                 <form onSubmit={this.submitSelections}>
                     {this.createCheckBoxes()}
                     <input type="submit" value="Save" className="input-item"></input>
                 </form>                    
-                    <div>
-                        <Button/>
-                    </div>
             </div>
         )
     }
