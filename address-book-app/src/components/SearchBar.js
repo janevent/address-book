@@ -29,9 +29,8 @@ class SearchBar extends Component {
         return (           
             <div className="SearchBar">
                 <form className="search-form" onSubmit={this.onSubmitSearch}>
-                    <label>Search</label>
-                    <input type="text" onChange={this.onChangeInput}></input>
-                    <input type="submit"></input>
+                    <label>Search    <input type="text" onChange={this.onChangeInput}></input>  </label>
+                    <input className='submit' type="submit"></input>
                 </form>                
             </div>            
         )
