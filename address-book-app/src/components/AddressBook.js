@@ -26,6 +26,18 @@ class AddressBook extends React.Component{
             }
         }
     }
+
+    showUsers = () => {
+        if(this.props.users !== undefined){
+        let users = this.props.users.map((u, i) => {            
+            return <User user={u} key={i} />
+        })
+        return users
+        }else {
+            return ""
+        }
+    }
+
     componentDidMount(){
             window.addEventListener("scroll", this.scrolling)
             if(this.props.nationalities == undefined || this.props.nationalities.length < 1){
@@ -38,18 +50,13 @@ class AddressBook extends React.Component{
     }
 
     render(){
-       
-        let users = this.props.users.map((u, i) => {            
-            return <User user={u} key={u.name.last+i} />
-        })
-        
         return(
             <Provider store={store}>
             <div>
                 <SearchBar/>
                 <Menu/>
                 <div className="users-grid">
-                    {users}
+                    {this.showUsers()}
                     <div className="loader"></div>
                 </div>                
             </div>
