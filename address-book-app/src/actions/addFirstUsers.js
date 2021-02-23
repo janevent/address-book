@@ -8,8 +8,8 @@ const addFirstUsers = (users) => {
 const fetchAndAddFirstUsers = ( n) => {
     return (dispatch) => {
         console.log(n)
-        let url = (n===undefined ) ? 'https://randomuser.me/api/?results=50&inc=name,email,picture,id,login,nat' :
-        `https://randomuser.me/api/?results=50&inc=name,email,picture,id,login,nat${n}`
+        let url = (n===undefined ) ? 'https://randomuser.me/api/?results=50&inc=name,email,picture,login,location,cell,phone,nat' :
+        `https://randomuser.me/api/?results=50&inc=name,email,picture,login,location,cell,phone,nat${n}`
         console.log("url", url)
         fetch(url)
         .then(response => response.json())
